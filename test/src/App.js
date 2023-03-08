@@ -6,7 +6,12 @@ function App() {
   const [resutl,setResult] = useState('nothing')
 
   useEffect(()=>{
-    fetch('http://212.60.126.221/').then((response)=>
+    fetch('https://212.60.126.221:80/', {
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin':'*'
+      }
+    }).then((response)=>
     response.json()
     ).then((data)=> {
       console.log(data)
