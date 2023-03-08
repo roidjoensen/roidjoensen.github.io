@@ -1,7 +1,20 @@
+import React,{useEffect,useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [resutl,setResult] = useState('nothing')
+
+  useEffect(()=>{
+    fetch('http://212.60.126.221/').then((response)=>
+    response.json()
+    ).then((data)=> {
+      console.log(data)
+      setResult(data)})
+    
+  },
+  []
+  )
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +28,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {resutl}
         </a>
       </header>
     </div>
