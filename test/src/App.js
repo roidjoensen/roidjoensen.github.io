@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   const [resutl,setResult] = useState('nothing')
-
+  const [pageToShow,setPageToShow] = useState('main')
   useEffect(()=>{
-    fetch('https://212.60.126.221:80/', {
+    fetch('https://212.60.126.221/', {
       mode: 'cors',
       headers: {
         'Access-Control-Allow-Origin':'*'
@@ -20,7 +20,13 @@ function App() {
   },
   []
   )
+
+
+
+
+  if(pageToShow==='main'){
   return (
+
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -34,10 +40,20 @@ function App() {
           rel="noopener noreferrer"
         >
           {resutl}
+          
         </a>
+        <button onClick={()=>setPageToShow('second')}>test</button>
       </header>
+      
     </div>
-  );
+  )}
+  
+  return (
+    <div className="iframe-container">
+      <iframe src='https://212.60.126.221/test/'></iframe>
+    </div>
+  )
+
 }
 
 export default App;
